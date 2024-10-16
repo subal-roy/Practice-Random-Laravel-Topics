@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessageNotification;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ProductController;
@@ -15,3 +16,10 @@ Route::get('/newsletter', [NewsletterController::class, 'index']);
 Route::post('/subscribe', [NewsletterController::class, 'subscribe']);
 
 
+Route::get('/event', function() {
+    event(new MessageNotification());
+    return 'done';
+});
+Route::get('/listen', function() {
+    return view('broadcast.listen');
+});
