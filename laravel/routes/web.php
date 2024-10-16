@@ -17,7 +17,7 @@ Route::post('/subscribe', [NewsletterController::class, 'subscribe']);
 
 
 Route::get('/event', function() {
-    event(new MessageNotification());
+    event(new MessageNotification('Hello, this a message notification.'));
     return 'done';
 });
 Route::get('/listen', function() {
